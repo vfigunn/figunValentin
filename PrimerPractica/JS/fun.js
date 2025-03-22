@@ -4,3 +4,4 @@ const Suma = (a,b)=>{
 }
 
 //Suma(10,5)
+//Suma(25,10)
