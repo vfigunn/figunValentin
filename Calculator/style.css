@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+header{
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+h1{
+    background-color: lightcoral;
+}
+
+main{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
+}
+
+.calculadora{
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+input{
+    padding: 8px;
+    margin: 5px;
+}
+
+label{
+    margin: 20px;
+    text-align: center;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin: auto;
+    padding: 5px 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
