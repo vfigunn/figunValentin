@@ -1,0 +1,100 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: Helvetica, Roboto , sans-serif,'Lucida Sans';
+    background-color: rgba(135, 0, 0, 0.5);
+}
+
+header{
+    margin-top: 10px;
+}
+
+h1{
+    text-decoration: underline;
+}
+
+main{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.labels{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.boton{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input{
+    width: 150px;
+    height: 20px;
+    margin: 5px;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+table{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    border: 1px solid black;
+    margin-top: 30px;
+    background-color: lightslategray;
+}
+
+thead,tbody{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+th, td{
+    width: 300px;
+    height: auto;
+    border-left: 1px solid black;
+}
+
+th{
+    border-bottom: 1px solid black;
+}
+

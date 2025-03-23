@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Alumnos/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>GESTOR DE ALUMNOS</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form action="">
+                <div class="labels">
+                    <label for="nombre">Nombre: <input type="text" id="nombre" name="nombre"></label>
+                    <label for="apellido">Apellido: <input type="text" id="apellido" name="apellido"></label>
+                    <label for="dni">DNI: <input type="number" id="dni" name="dni"></label>
+                </div>
+                <div class="boton">
+                    <button type="button" class="btn-agregar" onclick="enviar()">Agregar</button>
+                </div>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Valentin</td>
+                        <td>Figun</td>
+                        <td>33444555</td>
+                    </tr>
+                    <tr>
+                        <td>Jose Maria</td>
+                        <td>Listorti</td>
+                        <td>22888999</td>
+                    </tr>
+                    <tr>
+                        <td>Nicolas Gonzalo</td>
+                        <td>Martinez</td>
+                        <td>66888333</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="/Alumnos/main.js"></script>
+</body>
+</html>
