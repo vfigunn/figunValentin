@@ -1,20 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Calculator/style.css">
     <title>Calculadora</title>
 </head>
 <body>
-    <header><h1>Calculadora</h1></header>
     <main>
+        <div class="titulo"><h1>Calculadora</h1>
+        </div>
         <div class="calculadora">
-            <input type="number" id="n1"> 
-            <input type="number" id="n2">
-            <label>Resultado: <span id="resultado">0</span></label>
+            <div class="inputs">
+                <input type="number" id="n1"> 
+                <input type="number" id="n2">
+            </div>
+            <label>
+                <span class="resText">Resultado: </span>
+                <span id="resultado">0</span>
+            </label>
             <div class="boton">
-                <button onclick="sumar()">Sumar</button>
+                <div class="opcontainer">
+                    <button onclick="sumar()" class="btn-color">Sumar</button>
+                    <button onclick="restar()"class="btn-color">Restar</button>
+                </div>
+                <div class="opcontainer">
+                    <button onclick="multiplicar()" class="btn-color">Multipicar</button>
+                    <button onclick="dividir()" class="btn-color">Dividir</button>
+                </div>
+                <div class="opcontainer">
+                    <button onclick="borrar()" class="borrar">Borrar</button>
+                </div>
             </div>
         </div>
     </main>
