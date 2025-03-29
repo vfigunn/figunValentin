@@ -69,8 +69,10 @@ table{
     flex-direction: column;
     align-items:center;
     border: 1px solid black;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     margin-top: 30px;
-    background-color: lightslategray;
+    background-color: #f0f0f0;
 }
 
 thead,tbody{
