@@ -46,8 +46,9 @@ const Batalla = async (id1,id2)=>{
         let ganador = document.querySelector('#ganador')
         let imgganador = document.querySelector("#imgganador")
 
+
         if (poderPoke1>poderPoke2){
-            ganador.textContent = `${nombrePoke1.toUpperCase()} es el ganador!!`
+            ganador.innerHTML = `<b>${nombrePoke1.toUpperCase()}</b> es el ganador!!`
             imgganador.src = img1.src            
         }else if(poderPoke1<poderPoke2){
             ganador.innerHTML = `<b>${nombrePoke2.toUpperCase()}</b> es el ganador!!`
@@ -62,8 +63,6 @@ const Batalla = async (id1,id2)=>{
     }
 }
 
-
-
 let btnBatalla = document.querySelector('#batalla')
 
 btnBatalla.addEventListener('click',(e)=>{
@@ -71,6 +70,9 @@ btnBatalla.addEventListener('click',(e)=>{
 
     let id1 = parseInt(document.querySelector('#poke1').value)
     let id2 = parseInt(document.querySelector('#poke2').value)
+
+    let vs = document.querySelector("#vs")
+    vs.textContent = "VS"
 
     Batalla(id1,id2)
 })
@@ -94,5 +96,7 @@ btnBorrar.addEventListener('click',(e)=>{
 
     let poder1 = document.querySelector('#poder1').textContent = ""
     let poder2 = document.querySelector("#poder2").textContent = ""
+
+    let vs = document.querySelector("#vs").textContent = ""
 
 })

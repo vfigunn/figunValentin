@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: lightblue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    background-color: rgba(125, 150, 178, 0.7);
+    justify-content: center;
+    padding: 10px;
+}
+
+ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+li{
+    width: auto;
+    height: 100%;
+    list-style: none;
+    margin-right: 25px;
+    align-items: center;
+}
+
+a{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.traer{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#id{
+    border-radius: 2px;
+}
+
+
+
+
+#contenedor{
+    width: auto;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card{
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+img{
+    height: 100px;
+}
+
+.data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.imagen{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+p{
+    margin-top: 2px;
+}

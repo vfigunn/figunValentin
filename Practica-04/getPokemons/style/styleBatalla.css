@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    background-color: rgba(125, 150, 178, 0.7);
+    justify-content: center;
+    padding: 10px;
+}
+
+ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+li{
+    width: auto;
+    height: 100%;
+    list-style: none;
+    margin-right: 25px;
+    align-items: center;
+}
+
+a{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+h1{
+    padding-top: 20px;
+}
+.container{
+    margin-top: 30px;
+    background-color: #d0e2ed;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+input,button{
+    margin: 10px;
+    width: 50%;
+}
+
+button{
+    width: auto;
+}
+
+#ganador{
+    margin-top: 50px;
+}
+
+#pokemones{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
+#p1,#p2{
+    font-weight: 800;
+}
+
+img{
+    height: 100px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span{
+    font-size: x-large;
+}
