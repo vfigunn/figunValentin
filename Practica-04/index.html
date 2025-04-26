@@ -9,14 +9,31 @@
 <body>
     <div class="container">
         <form name="form">
-            <input type="number" placeholder="Ingrese un ID" id="poke1">
-            <input type="number" placeholder="Ingrese un ID" id="poke2">
-            <button id="batalla" type="submit">Batalla!</button>
+            <input type="number" placeholder="Ingrese ID de un Pokemon" id="poke1">
+            <input type="number" placeholder="Ingrese ID de un Pokemon" id="poke2">
+            <div>
+                <button id="batalla" type="submit">Batalla!</button>
+                <button id="borrar" type="submit">Borrar</button>
+            </div>
         </form>
         <div id="pokemones">
-            <span id="p1"></span><span>VS</span><span id="p2"></span>
+            <div class="card">
+                <img id='img1'>
+                <div id="p1"></div>
+                <p id="poder1"></p>
+            </div>
+            <span>VS</span>
+            <div class="card">
+                <img id='img2'>
+                <div id="p2"></div>
+                <p id="poder2"></p>
+                
+            </div>
         </div>
-        <div id="ganador"></div>
+        
+            <div id="ganador"></div>
+            <img id='imgganador'>
+        
     </div>
     <script src="/Practica-04/funciones/fn2.js"></script>
 </body>

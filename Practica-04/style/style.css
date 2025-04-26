@@ -6,6 +6,7 @@ body{
     background-color: lightblue;
     display: flex;
     justify-content: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container{
@@ -13,7 +14,7 @@ body{
     background-color: white;
     display: flex;
     width: 500px;
-    height: 300px;
+    height: 500px;
     align-items: center;
     justify-content: center;
     border: 2px solid black;
@@ -45,4 +46,23 @@ button{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    align-items: center;
+}
+
+#p1,#p2{
+    font-weight: 800;
+}
+
+img{
+    height: 100px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span{
+    font-size: x-large;
 }
