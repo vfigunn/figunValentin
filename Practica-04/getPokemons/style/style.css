@@ -76,7 +76,7 @@ label{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    box-shadow: 5px 5px 10px black;
 }
 
 img{

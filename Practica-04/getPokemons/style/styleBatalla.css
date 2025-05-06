@@ -53,6 +53,7 @@ h1{
     border: 2px solid black;
     border-radius: 10px;
     flex-direction: column;
+    box-shadow: 0px 0px 50px black;
 }
 
 form{

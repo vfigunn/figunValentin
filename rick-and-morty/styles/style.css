@@ -27,6 +27,7 @@ body{
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: rgb(179, 178, 155);
+    box-shadow: 10px 5px 5px black;
 }
 
 .name {
