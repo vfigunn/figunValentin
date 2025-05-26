@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>Pokeapi</title>
+    <link rel="stylesheet" href="./style/styleBatalla1vs1.css">
+    <title>Batalla de Pokemones 1vs1</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./batalla1vs1.html">Batalla 1vs1</a></li>
+            <li><a href="./batalla3vs3.html">Batalla 3vs3</a></li>
+        </ul>
+    </nav>
+        <h1>ENFRENTA 2 POKEMONES!!!</h1>
     <div class="container">
         <form name="form">
             <input type="number" placeholder="Ingrese ID de un Pokemon" id="poke1">
@@ -21,12 +29,14 @@
                 <img id='img1'>
                 <div id="p1"></div>
                 <p id="poder1"></p>
+                <p id="defense1"></p>
             </div>
             <span id="vs"></span>
             <div class="card">
                 <img id='img2'>
                 <div id="p2"></div>
                 <p id="poder2"></p>
+                <p id="defense2"></p>
                 
             </div>
         </div>
@@ -35,6 +45,6 @@
             <img id='imgganador'>
         
     </div>
-    <script src="/Practica-04/funciones/fn2.js"></script>
+    <script src="/Practica-04/getPokemons/funciones/1vs1.js"></script>
 </body>
 </html>

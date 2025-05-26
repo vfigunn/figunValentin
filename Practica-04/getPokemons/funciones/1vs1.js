@@ -7,25 +7,34 @@ const Batalla = async (id1,id2)=>{
         const pokemon1 = await res1.json()
         const nombrePoke1 = pokemon1.name
         let poderPoke1;
+        let defensePoke1;
         let stats = pokemon1.stats;
 
         stats.forEach(e => {
             if (e.stat.name === 'attack'){
                 poderPoke1 = e.base_stat
             }
+            if (e.stat.name === 'defense'){
+                defensePoke1 = e.base_stat
+            } 
         });
+
         
         //Pokmemon num 2
         const res2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id2}`)
         const pokemon2 = await res2.json()
         const nombrePoke2 = pokemon2.name
         let poderPoke2;
+        let defensePoke2;
         let stats2 = pokemon2.stats;
 
         stats2.forEach(e => {
             if (e.stat.name === 'attack'){
                 poderPoke2 = e.base_stat
             }
+            if (e.stat.name === 'defense'){
+                defensePoke2 = e.base_stat
+            } 
         });
 
         let p1 = document.querySelector('#p1')
@@ -34,6 +43,8 @@ const Batalla = async (id1,id2)=>{
         img1.src = pokemon1.sprites.front_default
         let poder1 = document.querySelector('#poder1')
         poder1.textContent = `Ataque: ${poderPoke1.toString()}`
+        let defense1 = document.querySelector('#defense1')
+        defense1.textContent = `Defensa: ${defensePoke1.toString()}`
 
 
         let p2 = document.querySelector('#p2')
@@ -42,12 +53,17 @@ const Batalla = async (id1,id2)=>{
         img2.src = pokemon2.sprites.front_default
         let poder2 = document.querySelector('#poder2')
         poder2.textContent = `Ataque: ${poderPoke2.toString()}`
+        let defense2 = document.querySelector('#defense2')
+        defense2.textContent = `Defensa: ${defensePoke2.toString()}`
 
         let ganador = document.querySelector('#ganador')
         let imgganador = document.querySelector("#imgganador")
 
+        let resultado1 = defensePoke1 - poderPoke2
+        let resultado2 = defensePoke2 - poderPoke1
 
-        if (poderPoke1>poderPoke2){
+
+        if (resultado1>resultado2){
             ganador.innerHTML = `<b>${nombrePoke1.toUpperCase()}</b> es el ganador!!`
             imgganador.src = img1.src            
         }else if(poderPoke1<poderPoke2){
