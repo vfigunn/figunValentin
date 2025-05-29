@@ -51,6 +51,8 @@ a{
 
 .card{
     width: 150px;
+    min-height: 270px;
+    margin-bottom: 10px;
     height: 100%;
 }
 
