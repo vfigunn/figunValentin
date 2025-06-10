@@ -7,8 +7,52 @@
     <title>Batalla 3x3 de Pokemones</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Batalla de Equipos Pókemon</h1>
+    </header>
+    <section>
+            <div id="EquipoUno">
+                <h2>Equipo 1</h2>
+                <div id="EquipoUnoCards"></div>
+                <div class="ganador">
+                    <h3 id="EquipoUnoGana"></h3>
+                </div>
 
+                <div class="equipoUnoStats">
+                    <p class="totalAttackE1"></p>
+                    <p class="totalDefenseE1"></p>
+                </div>
+                <div class="dados">
+                    <div class="tiradas">
+                        <button id="tirar_e1">tirar</button>
+                        <p id="tiradas_E1"></p>
+                    </div>
+                    <div class="resultados_dados">
+                        <p id="dado1"></p>
+                        <p id="dado2"></p>
+                    </div>
+                    <div class="resultados">
+                        <p id="res_dados_E1"></p>
+                        <p id="res_dados_final_E1"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="EquipoDos">
+                <h2>Equipo 2</h2>
+                <div id="EquipoDosCards"></div>
+                <div class="ganador">
+                    <h3 id="EquipoDosGana"></h3>
+                </div>
+                <div class="equipoDosStats">
+                    <p class="totalAttackE2"></p>
+                    <p class="totalDefenseE2"></p>
+                </div>
+            </div>
+    </section>
+    <div class="botones">
+        <button id="batalla">BATALLA</button>
+    </div>
     <script src="/functions/fn_1.js"></script>
 </body>
 </html>

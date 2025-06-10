@@ -1,47 +1,9 @@
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/'
-const $body = document.querySelector('body'),
-    $header = document.createElement('header'),
-    $h1 = document.createElement('h1'),
-    $section = document.createElement('section'),
-    $equipo1 = document.createElement('div'),
-    $equipo2 = document.createElement('div'),
-    $equipo1_title = document.createElement('h2'),
-    $equipo2_title = document.createElement('h2'),
-    $equipo1_cards = document.createElement('div'),
-    $equipo2_cards = document.createElement('div'),
-    $stats_total_E1 = document.createElement('div'),
-    $stats_total_E2 = document.createElement('div')
-
-
-$equipo1.id = 'EquipoUno'
-$equipo2.id = 'EquipoDos'
-$equipo1_cards.id = 'EquipoUnoCards'
-$equipo2_cards.id = 'EquipoDosCards'
-$equipo1_title.textContent = 'Equipo 1'
-$equipo2_title.textContent = 'Equipo 2'
-$stats_total_E1.setAttribute('class','equipoStats')
-$stats_total_E2.setAttribute('class','equipoStats')
-
-
-$body.append($header)
-$body.append($section)
-$header.append($h1)
-$section.append($equipo1)
-$section.append($equipo2)
-$equipo1.append($equipo1_title)
-$equipo2.append($equipo2_title)
-$equipo1.append($equipo1_cards)
-$equipo2.append($equipo2_cards)
-
-$equipo1.append($stats_total_E1)
-$equipo2.append($stats_total_E2)
-
-$h1.textContent = "Batalla de Equipos Pókemon"
-
-
-
-
+const $EquipoUno_Cards = document.getElementById('EquipoUnoCards'),
+    $EquipoDos_Cards = document.getElementById('EquipoDosCards'),
+    $btn_batalla = document.getElementById('batalla'),
+    $btn_dadosE1 = document.getElementById('tirar_e1')
 
 const getPokemons = async()=>{
     try{
@@ -68,42 +30,49 @@ const getPokemons = async()=>{
 
         createCards(equipo_uno,equipo_dos)
 
+        
+        let statsEquipoUno = generarStats(equipo_uno)  
 
+        document.querySelector('.totalAttackE1').textContent= `Total Attack: ${statsEquipoUno.attack}`
+        document.querySelector('.totalDefenseE1').textContent= `Total Attack: ${statsEquipoUno.defense}`
 
-
-
-
-
+        let statsEquipoDos = generarStats(equipo_dos)
+        document.querySelector('.totalAttackE2').textContent= `Total Attack: ${statsEquipoDos.attack}`
+        document.querySelector('.totalDefenseE2').textContent= `Total Attack: ${statsEquipoDos.defense}`
 
 
 
         //Batalla
-        const $total_attack_E1 = document.createElement('p'),
-        $total_defense_E1 = document.createElement('p'),
-        $total_attack_E2 = document.createElement('p'),
-        $total_defense_E2 = document.createElement('p')
+        $btn_batalla.disabled = true
+        $btn_batalla.addEventListener('click',()=>{
+            generarBatalla(statsEquipoUno,statsEquipoDos)
+        })
 
-        let statsEquipoUno = generarStats(equipo_uno)        
-        $total_attack_E1.textContent = `Total Attack: ${statsEquipoUno.attack}`
-        $total_defense_E1.textContent = `Total Defense: ${statsEquipoUno.defense}`
+        //Tirar Dados
+        let tirada_e1 = 0,
+        mayor_res_e1 = 0
+        $btn_dadosE1.addEventListener('click',()=>{
+            let dado_1 = Math.floor(Math.random()*6+1),
+            dado_2 = Math.floor(Math.random()*6+1),
+            suma_de_dados = dado_1 + dado_2
 
-        $stats_total_E1.append($total_attack_E1)
-        $stats_total_E1.append($total_defense_E1)
+            if(mayor_res_e1<suma_de_dados){mayor_res_e1=suma_de_dados}
 
-        let statsEquipoDos = generarStats(equipo_dos)
-        $total_attack_E2.textContent = `Total Attack: ${statsEquipoDos.attack}`
-        $total_defense_E2.textContent = `Total Defense: ${statsEquipoDos.defense}`
+            tirada_e1++ 
+            document.getElementById('tiradas_E1').textContent =  `Tiradas: ${tirada_e1}` 
+            document.getElementById('res_dados_E1').textContent = `Resultado: ${suma_de_dados}`
+            document.getElementById('res_dados_final_E1').textContent = `Resultado más alto: ${mayor_res_e1}`
+            document.getElementById('dado1').textContent = `Dado 1: ${dado_1}`
+            document.getElementById('dado2').textContent = `Dado 2: ${dado_2}`
 
-        $stats_total_E2.append($total_attack_E2)
-        $stats_total_E2.append($total_defense_E2)
-
-
-        const batalla = generarBatalla(statsEquipoUno,statsEquipoDos)
-
-
-
+            if(tirada_e1===3){
+                $btn_batalla.disabled=false
+                $btn_dadosE1.disabled=true
+            }
+        })
 
         
+
     }
     catch(err){
         
@@ -162,84 +131,94 @@ const generarBatalla = (equipo_uno,equipo_dos)=>{
         const restoEquipoDos = equipo_dos.defense - equipo_uno.attack
 
         if(restoEquipoUno == restoEquipoDos){
-            console.log('Hay empate!!!!!!')
+            document.getElementById('EquipoUnoGana').textContent = 'Hay empate!!!!!!'
+            document.getElementById('EquipoDosGana').textContent = 'Hay empate!!!!!!'
         }else if(restoEquipoUno>restoEquipoDos){
-            console.log('El quipo 1 es el ganador!!!!')
+            document.getElementById('EquipoUnoGana').textContent = 'El quipo 1 es el ganador!!!!'
         }else{
-            console.log('El equipo 2 es el gandor!!!!')
+            document.getElementById('EquipoDosGana').textContent = 'El quipo 2 es el ganador!!!!'
         }
+
+
 }
 
 const createCards = (equipoUno,equipoDos)=>{
 
     equipoUno.forEach(pokemon => {
-        let $equipo1_cards = document.querySelector('#EquipoUnoCards')
         let $card = document.createElement('div'),
-            $nombre = document.createElement('p'),
-            $ataque = document.createElement('p'),
-            $defensa = document.createElement('p'),
-            $imagen = document.createElement('img')
-        
-        $card.setAttribute("class","card")
-        let name = pokemon.name;
-        $nombre.textContent = name
+        $pokeImg = document.createElement('img'),
+        $pokeName = document.createElement('p'),
+        $pokeAttack = document.createElement('p'),
+        $pokeDefense = document.createElement('p')
+
+        $card.setAttribute('class','card')
+        let name = pokemon.name
+        $pokeName.textContent = name
         let img = pokemon.sprites.front_default
-        $imagen.src = img
+        $pokeImg.src = img
 
 
         pokemon.stats.forEach(stat =>{
             if(stat.stat.name === 'attack'){
                 let attack = stat.base_stat
-                $ataque.textContent = `Attack: ${attack}`
+                $pokeAttack.textContent = `Attack: ${attack}`
             }
             if(stat.stat.name === 'defense'){
                 let defense = stat.base_stat
-                $defensa.textContent = `Denfense: ${defense}`
+                $pokeDefense.textContent = `Denfense: ${defense}`
             }
-            $card.append($imagen)
-            $card.append($nombre)
-            $card.append($ataque)
-            $card.append($defensa)
+            $card.append($pokeImg)
+            $card.append($pokeName)
+            $card.append($pokeAttack)
+            $card.append($pokeDefense)
 
-            $equipo1_cards.appendChild($card)
+            $EquipoUno_Cards.appendChild($card)
         })
     });
 
+    
     equipoDos.forEach(pokemon => {
-        let $equipo2_cards = document.querySelector('#EquipoDosCards')
         let $card = document.createElement('div'),
-            $nombre = document.createElement('p'),
-            $ataque = document.createElement('p'),
-            $defensa = document.createElement('p'),
-            $imagen = document.createElement('img')
-        
-        $card.setAttribute("class","card")
-        let name = pokemon.name;
-        $nombre.textContent = name
+        $pokeImg = document.createElement('img'),
+        $pokeName = document.createElement('p'),
+        $pokeAttack = document.createElement('p'),
+        $pokeDefense = document.createElement('p')
+
+        $card.setAttribute('class','card')
+        let name = pokemon.name
+        $pokeName.textContent = name
         let img = pokemon.sprites.front_default
-        $imagen.src = img
+        $pokeImg.src = img
 
 
         pokemon.stats.forEach(stat =>{
             if(stat.stat.name === 'attack'){
                 let attack = stat.base_stat
-                $ataque.textContent = `Attack: ${attack}`
+                $pokeAttack.textContent = `Attack: ${attack}`
             }
             if(stat.stat.name === 'defense'){
                 let defense = stat.base_stat
-                $defensa.textContent = `Denfense: ${defense}`
+                $pokeDefense.textContent = `Denfense: ${defense}`
             }
-            $card.append($imagen)
-            $card.append($nombre)
-            $card.append($ataque)
-            $card.append($defensa)
+            $card.append($pokeImg)
+            $card.append($pokeName)
+            $card.append($pokeAttack)
+            $card.append($pokeDefense)
 
-            $equipo2_cards.appendChild($card)
+            $EquipoDos_Cards.appendChild($card)
         })
     });
+
 
 
 }
+
+// const tirarDados = ()=>{
+//     let tirada_e1 = 0
+//     tirada_e1++
+//     document.getElementById('tiradas_E1').textContent =  `Tiradas: ${tirada_e1}`  
+//     tirada_e1++  
+// }
 
 
 
