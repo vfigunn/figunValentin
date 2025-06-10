@@ -3,7 +3,8 @@ const URL = 'https://pokeapi.co/api/v2/pokemon/'
 const $EquipoUno_Cards = document.getElementById('EquipoUnoCards'),
     $EquipoDos_Cards = document.getElementById('EquipoDosCards'),
     $btn_batalla = document.getElementById('batalla'),
-    $btn_dadosE1 = document.getElementById('tirar_e1')
+    $btn_dadosE1 = document.getElementById('tirar_e1'),
+    $btn_dadosE2 = document.getElementById('tirar_e2')
 
 const getPokemons = async()=>{
     try{
@@ -34,11 +35,11 @@ const getPokemons = async()=>{
         let statsEquipoUno = generarStats(equipo_uno)  
 
         document.querySelector('.totalAttackE1').textContent= `Total Attack: ${statsEquipoUno.attack}`
-        document.querySelector('.totalDefenseE1').textContent= `Total Attack: ${statsEquipoUno.defense}`
+        document.querySelector('.totalDefenseE1').textContent= `Total Defense: ${statsEquipoUno.defense}`
 
         let statsEquipoDos = generarStats(equipo_dos)
         document.querySelector('.totalAttackE2').textContent= `Total Attack: ${statsEquipoDos.attack}`
-        document.querySelector('.totalDefenseE2').textContent= `Total Attack: ${statsEquipoDos.defense}`
+        document.querySelector('.totalDefenseE2').textContent= `Total Defense: ${statsEquipoDos.defense}`
 
 
 
@@ -48,10 +49,30 @@ const getPokemons = async()=>{
             generarBatalla(statsEquipoUno,statsEquipoDos)
         })
 
-        //Tirar Dados
+        
+        //Dados Equipo 1
+        document.getElementById('tiradas_E1').textContent =  `Tiradas: ` 
+        document.getElementById('dado1_E1').textContent = `Dado 1: `
+        document.getElementById('dado2_E1').textContent = `Dado 2: `
+        document.getElementById('res_dados_E1').textContent = `Resultado: `
+        document.getElementById('res_dados_final_E1').textContent = `Resultado más alto: `
+
+        //Dados Equipo 2
+        document.getElementById('tiradas_E2').textContent =  `Tiradas: ` 
+        document.getElementById('dado1_E2').textContent = `Dado 1: `
+        document.getElementById('dado2_E2').textContent = `Dado 2: `
+        document.getElementById('res_dados_E2').textContent = `Resultado: `
+        document.getElementById('res_dados_final_E2').textContent = `Resultado más alto: `
+
+        let tiradas_totales = 0
+        $btn_batalla.disabled=true
+
+        //Tirar Dados E1
         let tirada_e1 = 0,
         mayor_res_e1 = 0
+
         $btn_dadosE1.addEventListener('click',()=>{
+            tiradas_totales++
             let dado_1 = Math.floor(Math.random()*6+1),
             dado_2 = Math.floor(Math.random()*6+1),
             suma_de_dados = dado_1 + dado_2
@@ -62,15 +83,40 @@ const getPokemons = async()=>{
             document.getElementById('tiradas_E1').textContent =  `Tiradas: ${tirada_e1}` 
             document.getElementById('res_dados_E1').textContent = `Resultado: ${suma_de_dados}`
             document.getElementById('res_dados_final_E1').textContent = `Resultado más alto: ${mayor_res_e1}`
-            document.getElementById('dado1').textContent = `Dado 1: ${dado_1}`
-            document.getElementById('dado2').textContent = `Dado 2: ${dado_2}`
+            document.getElementById('dado1_E1').textContent = `Dado 1: ${dado_1}`
+            document.getElementById('dado2_E1').textContent = `Dado 2: ${dado_2}`
 
             if(tirada_e1===3){
-                $btn_batalla.disabled=false
                 $btn_dadosE1.disabled=true
             }
+
+            if(tiradas_totales===6){$btn_batalla.disabled=false}
+
         })
 
+        //Tirar Dados E2
+        let tirada_e2 = 0,
+        mayor_res_e2 = 0
+        $btn_dadosE2.addEventListener('click',()=>{
+            tiradas_totales++
+            let dado_1 = Math.floor(Math.random()*6+1),
+            dado_2 = Math.floor(Math.random()*6+1),
+            suma_de_dados = dado_1 + dado_2
+
+            if(mayor_res_e2<suma_de_dados){mayor_res_e2=suma_de_dados}
+
+            tirada_e2++ 
+            document.getElementById('tiradas_E2').textContent =  `Tiradas: ${tirada_e2}` 
+            document.getElementById('res_dados_E2').textContent = `Resultado: ${suma_de_dados}`
+            document.getElementById('res_dados_final_E2').textContent = `Resultado más alto: ${mayor_res_e2}`
+            document.getElementById('dado1_E2').textContent = `Dado 1: ${dado_1}`
+            document.getElementById('dado2_E2').textContent = `Dado 2: ${dado_2}`
+
+            if(tirada_e2===3){$btn_dadosE2.disabled=true}
+            if(tiradas_totales===6){$btn_batalla.disabled=false}
+
+
+        })
         
 
     }
@@ -134,9 +180,9 @@ const generarBatalla = (equipo_uno,equipo_dos)=>{
             document.getElementById('EquipoUnoGana').textContent = 'Hay empate!!!!!!'
             document.getElementById('EquipoDosGana').textContent = 'Hay empate!!!!!!'
         }else if(restoEquipoUno>restoEquipoDos){
-            document.getElementById('EquipoUnoGana').textContent = 'El quipo 1 es el ganador!!!!'
+            document.getElementById('EquipoUnoGana').textContent = 'El equipo 1 es el ganador!!!!'
         }else{
-            document.getElementById('EquipoDosGana').textContent = 'El quipo 2 es el ganador!!!!'
+            document.getElementById('EquipoDosGana').textContent = 'El equipo 2 es el ganador!!!!'
         }
 
 
@@ -165,7 +211,7 @@ const createCards = (equipoUno,equipoDos)=>{
             }
             if(stat.stat.name === 'defense'){
                 let defense = stat.base_stat
-                $pokeDefense.textContent = `Denfense: ${defense}`
+                $pokeDefense.textContent = `Defense: ${defense}`
             }
             $card.append($pokeImg)
             $card.append($pokeName)
@@ -198,7 +244,7 @@ const createCards = (equipoUno,equipoDos)=>{
             }
             if(stat.stat.name === 'defense'){
                 let defense = stat.base_stat
-                $pokeDefense.textContent = `Denfense: ${defense}`
+                $pokeDefense.textContent = `Defense: ${defense}`
             }
             $card.append($pokeImg)
             $card.append($pokeName)
@@ -212,15 +258,6 @@ const createCards = (equipoUno,equipoDos)=>{
 
 
 }
-
-// const tirarDados = ()=>{
-//     let tirada_e1 = 0
-//     tirada_e1++
-//     document.getElementById('tiradas_E1').textContent =  `Tiradas: ${tirada_e1}`  
-//     tirada_e1++  
-// }
-
-
 
 const randomNumber = (total_pokemons)=>{
     const number = Math.floor(Math.random() * total_pokemons)

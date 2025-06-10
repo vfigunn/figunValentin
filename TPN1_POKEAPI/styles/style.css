@@ -1,15 +1,17 @@
 body{
     margin: 0;
     padding: 0;
-    background: #888;
+    background: #000;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 header{
     width: 100%;
     display: flex;
     background: #444;
+    
 }
 
 h1,h2,h3{
@@ -25,7 +27,6 @@ section{
     height: 80vh;
     display: flex;
     gap: 5px;
-    background: beige;
 }
 
 #EquipoUno,#EquipoDos{
@@ -34,14 +35,17 @@ section{
     justify-content: space-around;
     width: 50%;
     height: auto;
+    min-height: fit-content;
+    background-color: #444;
     border: 2px solid black;
+    border-radius: 10px;
 }
 
 #EquipoUnoCards,#EquipoDosCards{
     height: 265px;
     display: flex;
-    gap: 2px;
-    justify-content: space-around;
+    gap: 16px;
+    justify-content: space-evenly;
 }
 
 .card{
@@ -51,7 +55,8 @@ section{
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: #000;
 }
 
 .equipoUnoStats,.equipoDosStats{
@@ -98,8 +103,11 @@ p{
 }
 
 .tiradas{
+    display: flex;
+    align-items: center;
     width: 110px;
 }
-#tirar_e1{
+#tirar_e1,#tirar_e2{
+    width: fit-content;
     margin-top: 1rem;
 }
