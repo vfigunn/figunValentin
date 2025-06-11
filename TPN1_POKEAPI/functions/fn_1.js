@@ -45,8 +45,12 @@ const getPokemons = async()=>{
 
         //Batalla
         $btn_batalla.disabled = true
+
         $btn_batalla.addEventListener('click',()=>{
             generarBatalla(statsEquipoUno,statsEquipoDos)
+            $btn_batalla.style.backgroundColor = '#222'
+            $btn_batalla.disabled=true
+
         })
 
         
@@ -87,10 +91,14 @@ const getPokemons = async()=>{
             document.getElementById('dado2_E1').textContent = `Dado 2: ${dado_2}`
 
             if(tirada_e1===3){
+                $btn_dadosE1.style.backgroundColor = '#222'
                 $btn_dadosE1.disabled=true
             }
 
-            if(tiradas_totales===6){$btn_batalla.disabled=false}
+            if(tiradas_totales===6){
+                $btn_batalla.style.backgroundColor = "red";
+                $btn_batalla.disabled=false
+            }
 
         })
 
@@ -112,8 +120,14 @@ const getPokemons = async()=>{
             document.getElementById('dado1_E2').textContent = `Dado 1: ${dado_1}`
             document.getElementById('dado2_E2').textContent = `Dado 2: ${dado_2}`
 
-            if(tirada_e2===3){$btn_dadosE2.disabled=true}
-            if(tiradas_totales===6){$btn_batalla.disabled=false}
+            if(tirada_e2===3){
+                $btn_dadosE2.style.backgroundColor = '#222'
+                $btn_dadosE2.disabled=true
+            }
+            if(tiradas_totales===6){
+                $btn_batalla.style.backgroundColor = "red";
+                $btn_batalla.disabled=false
+            }
 
 
         })
@@ -175,6 +189,11 @@ const generarStats = (equipo)=>{
 const generarBatalla = (equipo_uno,equipo_dos)=>{
         const restoEquipoUno = equipo_uno.defense - equipo_dos.attack
         const restoEquipoDos = equipo_dos.defense - equipo_uno.attack
+        console.log(restoEquipoUno,' ',restoEquipoDos)
+
+        document.querySelector('.defensaSobranteE1').textContent = `Defensa sobrante: ${restoEquipoUno}`;
+
+        document.querySelector('.defensaSobranteE2').textContent = `Defensa sobrante: ${restoEquipoDos}`;
 
         if(restoEquipoUno == restoEquipoDos){
             document.getElementById('EquipoUnoGana').textContent = 'Hay empate!!!!!!'

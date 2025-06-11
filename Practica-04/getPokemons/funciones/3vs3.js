@@ -38,7 +38,6 @@ const getPokemons = async()=>{
     const elegidos = [];
     const pokemones = await getAllPokemons()
 
-
     for(i=0;i<6;i++){
         const id = getNumRand(1,pokemones.length)
         const pokemonUrl = pokemones[id].url
