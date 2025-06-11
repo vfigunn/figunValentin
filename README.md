@@ -15,7 +15,7 @@ Para clonar el repositorio y abrir la carpeta del trabajo práctico en Visual St
 git clone https://github.com/vfigunn/figunValentin.git
 cd TPN1_POKEAPI
 code .
-
+```
 ---
 
 > 📁 Cada nuevo trabajo práctico será incorporado como una subcarpeta en este repositorio.
