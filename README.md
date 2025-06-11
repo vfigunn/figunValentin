@@ -13,6 +13,7 @@ Para clonar el repositorio y abrir la carpeta del trabajo práctico en Visual St
 
 ```bash
 git clone https://github.com/vfigunn/figunValentin.git
+cd figunValentin
 cd TPN1_POKEAPI
 code .
 ```
