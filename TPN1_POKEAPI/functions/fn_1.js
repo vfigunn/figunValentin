@@ -126,6 +126,7 @@ const getPokemons = async()=>{
             }
             if(tiradas_totales===6){
                 $btn_batalla.style.backgroundColor = "red";
+                $btn_batalla.setAttribute('style','#batalla:hover{background-color: lightred}')
                 $btn_batalla.disabled=false
             }
 

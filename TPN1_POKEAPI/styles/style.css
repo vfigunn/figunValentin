@@ -111,7 +111,7 @@ p{
     width: 110px;
 }
 #tirar_e1,#tirar_e2{
-    background-color: blue;
+    background-color: green;
     color: white;
     font-weight: 600;
     font-size: large;
@@ -119,6 +119,11 @@ p{
     width: fit-content;
     margin-top: 1rem;
     border: 2px solid white;
+}
+#tirar_e1:hover,#tirar_e2:hover{
+    background-color: rgb(70, 174, 70);
+    cursor: pointer;
+
 }
 
 #batalla{
