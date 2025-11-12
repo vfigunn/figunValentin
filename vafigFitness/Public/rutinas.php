@@ -202,9 +202,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editar_rutina'])) {
                                 </div>
                             </div>
                         <?php endforeach; ?>
-
-
-
                     </div>
                 </main>
 
